@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Mental - Aposentadoria por Idade</title>
+  <script src="https://cdn.jsdelivr.net/npm/@hpcc-js/wasm@0.3.18/dist/index.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+  <script src="https://unpkg.com/@hpcc-js/graphviz@2.13.0/dist/graphviz.min.js"></script>
+</head>
+<body>
+  <h1>Mapa Mental - Aposentadoria por Idade</h1>
+  <div id="graph" style="width: 800px; height: 600px;"></div>
+
+  <script>
+    const dot = `
+      digraph {
+        A [label="Aposentadoria por Idade"]
+        B [label="Conceito e Objetivo"]
+        C [label="Requisitos Principais"]
+        D [label="Modalidades de Aposentadoria"]
+        E [label="Reforma da Previdência (2019)"]
+        F [label="Cálculo do Benefício"]
+        G [label="Provas Documentais"]
+        H [label="Questões Frequentes"]
+        
+        A -> B
+        A -> C
+        A -> D
+        A -> E
+        A -> F
+        A -> G
+        A -> H
+        
+        B -> B1 [label="Definição"]
+        B -> B2 [label="Objetivo"]
+        B -> B3 [label="Modalidades"]
+        
+        C -> C1 [label="Idade Mínima"]
+        C -> C2 [label="Tempo de Contribuição"]
+        C -> C3 [label="Requisitos Adicionais"]
+        
+        D -> D1 [label="Urbana"]
+        D -> D2 [label="Rural"]
+        D -> D3 [label="Híbrida"]
+        
+        E -> E1 [label="Idade Alterada"]
+        E -> E2 [label="Regra de Transição"]
+        
+        F -> F1 [label="60% + 2%"]
+        F -> F2 [label="Média dos Salários"]
+        
+        G -> G1 [label="Documentos Específicos"]
+        G -> G2 [label="Comprovação Urbana/Rural"]
+        
+        H -> H1 [label="Requisitos"]
+        H -> H2 [label="Regime Geral"]
+        H -> H3 [label="Reforma 2019"]
+      }
+    `;
+    
+    d3.select("#graph").graphviz().renderDot(dot);
+  </script>
+</body>
+</html>
